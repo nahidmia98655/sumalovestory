@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.material3.icons.Icons
 import androidx.compose.material3.icons.filled.Add
-import androidx.compose.material3.icons.filled.ArrowBack
 import androidx.compose.material3.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -27,7 +26,7 @@ fun HomeScreen(viewModel: LoveStoryViewModel, navController: NavController) {
             CenterAlignedTopAppBar(
                 title = { Text("Love Stories") },
                 actions = {
-                    // Placeholder for future actions (e.g., settings)
+                    // Future actions (e.g., Settings) can be added here
                 }
             )
         },

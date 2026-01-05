@@ -50,7 +50,7 @@ fun StoryDetailScreen(viewModel: LoveStoryViewModel, navController: NavControlle
                 )
             }
         } else {
-            // Fallback UI if somehow no story is selected
+            // Fallback UI if no story is selected
             Box(
                 modifier = Modifier
                     .fillMaxSize()
