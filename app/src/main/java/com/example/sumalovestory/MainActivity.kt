@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -16,6 +16,7 @@ class MainActivity : ComponentActivity() {
 
     private val viewModel: LoveStoryViewModel by viewModels()
 
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     composable("home") {
                         HomeScreen(viewModel = viewModel, navController = navController)
                     }
-                    composable("detail") {
+                    composable("detail/{title}") {
                         StoryDetailScreen(viewModel = viewModel, navController = navController)
                     }
                 }
