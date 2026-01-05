@@ -13,6 +13,7 @@ import com.example.sumalovestory.LoveStoryViewModel
 import com.example.sumalovestory.Story
 import androidx.compose.ui.text.style.TextOverflow
 
+@OptIn(ExperimentalMaterial3Api::class) // <-- added opt‑in for experimental top bar
 @Composable
 fun HomeScreen(viewModel: LoveStoryViewModel) {
     val stories = viewModel.stories.collectAsState()
@@ -37,7 +38,7 @@ fun HomeScreen(viewModel: LoveStoryViewModel) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class) // keep for the Card elevation API if needed
 @Composable
 fun StoryItem(story: Story) {
     Card(
