@@ -1,0 +1,1 @@
+- [x] **RESOLVED LINK**: [build.gradle.kts](file:///c:/Users/USER/Documents/NS%20AI%20CODE%20STUDIO/build.gradle.kts) – Added missing plugins and clean task.
