@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -24,10 +25,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.sumalovestory.LoveStoryViewModel
+import java.net.URLDecoder
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StoryDetailScreen(viewModel: LoveStoryViewModel, navController: NavController) {
+    // Retrieve the title argument from the *current* back‑stack entry (safer than previousBackStackEntry)
+    val encodedTitle = navController.currentBackStackEntry?.arguments?.getString("title")
+    val title = encodedTitle?.let { URLDecoder.decode(it, "UTF-8") }
+    if (title != null && viewModel.selectedStory.value?.title != title) {
+        viewModel.stories.value.find { it.title == title }?.let { viewModel.selectStory(it) }
+    }
+
     val story = viewModel.selectedStory.collectAsState().value
 
     Scaffold(
